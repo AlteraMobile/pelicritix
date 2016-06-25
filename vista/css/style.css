@@ -1,0 +1,344 @@
+/*
+==============================================================
+================================================ Generalidades
+==============================================================
+*/
+/*
+Fonts
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,600,300,100,200);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800,600);
+
+html, body{
+	height: 100%;
+}
+body{
+
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 25px;
+	background-color: #EEE;
+	color: #535353;
+}
+#contenido{
+	min-height: 100%;
+	margin-bottom: -150px;
+	padding-bottom: 25px;
+
+}
+#contenido:after{
+	content: "";
+	display: block;
+	height: 150px;
+}
+
+.clear{ float: none; clear: both; }
+.bold{ font-weight: bold; }
+.txt_right{ text-align: right; }
+.left{ float:left;}
+.espacio{
+	display: block;
+	height: 25px;
+}
+
+.play{
+	float: right;
+	margin-top: -25px;
+	margin-right: 3px;}
+
+form, button {
+	font-weight:300;
+	font-size:13px;
+	color:#666;
+}
+h1{
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	color: #2BACD2;
+	font-size:30px;
+	line-height: 70px;
+}
+h3{
+	font-family: 'Raleway', sans-serif;
+	color: #999;
+	font-size:22px;
+	font-weight:300;
+}
+h4{
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
+	font-size:22px;
+	font-weight:600;
+}
+
+
+/*
+==============================================================
+======================================================= Header
+==============================================================
+*/
+#logo{
+	width: 120px; height: 120px;
+}
+#cont_buscador, #cont_login{
+	margin-top: 30px;
+}
+#txt_buscar{
+	width: 80%;
+	float: left;
+}
+.txt_right{
+	text-align: right;
+}
+.txt_left{
+	text-align: left;
+}
+.txt_center{
+	text-align: center;
+}
+/*
+==============================================================
+======================================================= Slider
+==============================================================
+*/
+#slider{
+	margin-top: 25px;
+	height: 450px;
+	display: block;
+}
+.my-slider{
+	display: block;
+	height: 450px;
+	overflow: hidden;
+	position: relative;
+}
+.my-slider .titulo{
+	text-shadow: 1px 1px #FFF;
+	position: absolute;
+	margin-top: 280px;
+	margin-bottom: 100px;
+	font-size: 50px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	color: #2BACD2;
+	display: block;
+	z-index: 100;
+}
+#division_slider{
+	margin-bottom: 140px;
+}
+.my-slider img {
+	max-height: 100%;
+	width: 100%;
+	z-index: -100;
+}
+.unslider-arrow {
+    margin-top: -250px;
+}
+.unslider-nav{
+	display: none;
+}
+/*
+==============================================================
+==================================================== Contenido
+==============================================================
+*/
+.inicio{
+	margin-bottom: 25px;
+	display: block;
+}
+#cont_contenido{
+	margin-top: 25px;
+}
+#filtros{
+	background-color: #666;
+	color: #FFF;
+	padding-right: 25px;
+	padding-left: 25px;
+	text-align: center;
+}
+#filtros button{
+	width: 25px;
+	margin-right: 1px;
+	margin-left: 1px;
+	margin-bottom: 5px;
+}
+.grid-item {
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.05), 0 6px 6px 0 rgba(0, 0, 0, 0.15);
+	background-color: #FFF;
+	border: 1px;
+	border-style: solid;
+	border-color: #E6E6E6;
+	margin: 7px;
+	padding: 12px;
+	border-radius: 15px;
+	max-width: 269px;
+}
+.cont_caratula{
+	box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+	margin-right: 7px;
+	margin-bottom: 7px;
+	width: 240px;
+	border-radius: 10px;
+	overflow: hidden;
+	float: left;
+	display:block;
+	margin-bottom:15px;
+}
+.cont_caratula img{
+	float: left;
+	width: 240px;
+}
+.trailer{
+	display: none;
+}
+.btn_trailer{
+	cursor: pointer;
+}
+.grid-item .ranking{
+	width: 51px;
+	height: 51px;
+	display: block;
+	float: right;
+	text-align: center;
+	color: #FFF;
+	background-color: #92B73C;
+	font-size: 26px;
+	font-weight: 700;
+	border-radius: 26px;
+	padding-top: 6px;
+}
+.grid-item h3{
+	margin-top: 7px;
+	clear: both;
+}
+.glyphicon .glyphicon-play {margin-top:-20px;}
+.detalle, .min_critica, .max_critica p{
+	width: 240px;
+	font-size: 12px;
+	display: block;
+}
+.detalle, .stars{
+	margin-top: 7px;
+	margin-bottom: 7px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: dashed;
+	border-bottom-style: dashed;
+	border-top-color: #2BACD2;
+	border-bottom-color: #2BACD2;
+}
+
+.min_critica{
+	margin-top: 7px;
+	padding-top: 7px;
+}
+.max_critica p{
+
+	display: none;
+}
+
+
+.leer_mas {
+	width: 100%;
+	margin-top: 7px;
+}
+#btn_cargar_mas{
+	margin-top:25px;
+}
+
+.ui-dialog{
+	border-color: #666;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #F4F4F4;
+}
+
+
+/*
+==============================================================
+================================================== Forms Admin
+==============================================================
+*/
+#form_nuevo, #form_modificar, #form_mod_pelicula, #form_slider, #form_mod_slider, #form_mod_usuario{display: none;}
+
+
+/*
+==============================================================
+======================================================= Footer
+==============================================================
+*/
+footer{
+	background-color: #28A4C8;
+	height: 150px;
+	color: #FFFFFF;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: linear-gradient(#5BC0DE, #28A4C8);
+}
+@media only screen and (max-width: 1225px) {
+    #slider{
+		height: 411px;
+	}
+	.unslider-arrow {
+    	margin-top: -270px;
+	}
+}
+
+@media only screen and (max-width: 1065px) {
+    #slider{
+		height: 358px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+    #slider{
+		height: 302px;
+	}
+	.unslider-arrow {
+    	margin-top: -325px;
+	}
+}
+
+@media only screen and (max-width: 756px) {
+    h1{
+    	font-size: 35px;
+    	line-height: 40px;
+    }
+    #slider{
+		height: 254px;
+	}
+}
+
+@media only screen and (max-width: 598px) {
+    #slider{
+		height: 200px;
+	}
+	.unslider-arrow {
+    	margin-top: -370px;
+	}
+}
+
+@media only screen and (max-width: 414px) {
+	h1{
+		font-size: 20px;
+		line-height: 25px;
+	}
+    #slider{
+		height: 138px;
+	}
+	.unslider-arrow {
+    	margin-top: -400px;
+	}
+}
+
+@media only screen and (max-width: 290px) {
+    #slider{
+		height: 96px;
+	}
+	.unslider-arrow {
+    	margin-top: -422px;
+	}
+}
