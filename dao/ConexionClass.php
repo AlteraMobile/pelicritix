@@ -17,8 +17,6 @@ class Conexion{
 	function __construct(){
 		$this->conn = new mysqli($this->host, $this->user, $this->pass, $this->database);
 		$this->conn->set_charset("utf8");
-
-		$this->abrirConexion();
 	}
 	
 
@@ -37,10 +35,12 @@ class Conexion{
 		$this->conn->close();
 	}
 	public function querys($query){
-		$comprobador = FALSE;
+		$comprobador = false;
 		if( $this->conn->query($query) ){
 			if( $this->conn->affected_rows > 0 ){
-				$comprobador = TRUE;
+
+				$comprobador = true;
+				echo "ok";
 			}
 		}
 		return $comprobador;

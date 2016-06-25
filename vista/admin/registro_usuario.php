@@ -8,40 +8,6 @@
 
 	require_once('header.php');
 
-	// Agregar nuevo Usuario
-	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'agregar'){
-		if( isset($_REQUEST["nombres"]) && isset($_REQUEST["apellidos"]) && isset($_REQUEST["fechaNacimiento"])
-			&& isset($_REQUEST["nombreUsuario"]) &&	isset($_REQUEST["pass"]) &&	isset($_REQUEST["pass2"]) ) {
-				
-				$usuario = new Usuario();
-				
-				$usuario->setNombres($_REQUEST["nombres"]);
-				$usuario->setApellidos($_REQUEST["apellidos"]);
-				$usuario->setFechaNacimiento($_REQUEST["fechaNacimiento"]);
-				$usuario->setNombreUsuario($_REQUEST["nombreUsuario"]);
-				$usuario->setPass($_REQUEST["pass"]);
-				$usuario->setPass2($_REQUEST["pass2"]);
-				$usuario->setActivo('1');
-
-				$usuarioControl = new UsuarioControl($usuario);
-				$return = $usuarioControl->agregarUsuario();
-
-				if($return) {
-				?>
-					<script type="text/javascript" >
-						alert("El usuario fue agregado exitosamente!");
-					</script>
-				<?php
-				}
-				else {
-				?>
-					<script type="text/javascript" >
-						alert("Ocurrió un error. El usuario no fue guardado!.");
-					</script>
-				<?php
-				}
-			}
-		}
 	?>
 	<header class="container">
 		<div class="row">
@@ -110,126 +76,6 @@
 						$usuarioControl = new UsuarioControl();
 						$usuarioControl->listarUsuarios();
 					?>
-						<tr>
-							<td>Katherine Andrea</td>
-							<td>Nussbaum Niccoli</td>
-							<td>04/03/1979</td>
-							<td>kty</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Rodrigo</td>
-							<td>Vergara A.</td>
-							<td>01/08/1983</td>
-							<td>roro</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil"></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Juan Cristobal</td>
-							<td>Sanchez</td>
-							<td>24/12/1972</td>
-							<td>lolo</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Katherine Andrea</td>
-							<td>Nussbaum Niccoli</td>
-							<td>04/03/1979</td>
-							<td>kty</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Rodrigo</td>
-							<td>Vergara A.</td>
-							<td>01/08/1983</td>
-							<td>roro</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Juan Cristobal</td>
-							<td>Sanchez</td>
-							<td>24/12/1972</td>
-							<td>lolo</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Katherine Andrea</td>
-							<td>Nussbaum Niccoli</td>
-							<td>04/03/1979</td>
-							<td>kty</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Rodrigo</td>
-							<td>Vergara A.</td>
-							<td>01/08/1983</td>
-							<td>roro</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Juan Cristobal</td>
-							<td>Sanchez</td>
-							<td>24/12/1972</td>
-							<td>lolo</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Katherine Andrea</td>
-							<td>Nussbaum Niccoli</td>
-							<td>04/03/1979</td>
-							<td>kty</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Rodrigo</td>
-							<td>Vergara A.</td>
-							<td>01/08/1983</td>
-							<td>roro</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Juan Cristobal</td>
-							<td>Sanchez</td>
-							<td>24/12/1972</td>
-							<td>lolo</td>
-							<td>
-								<button class="btn btn-default btn-xs modificar_usuario"><span class="glyphicon glyphicon-pencil "></span></button>
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-							</td>
-						</tr>
 					</tbody>	
 				</table>
 			</div>
@@ -399,5 +245,44 @@
 		};
 
 	</script>
+<?php
+// Agregar nuevo Usuario
+	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'agregar'){
+		if( isset($_REQUEST["nombres"]) && isset($_REQUEST["apellidos"]) && isset($_REQUEST["fechaNacimiento"])
+			&& isset($_REQUEST["nombreUsuario"]) &&	isset($_REQUEST["pass"]) &&	isset($_REQUEST["pass2"]) ) {
+				
+				$usuario = new Usuario();
+				
+				$usuario->setNombres($_POST["nombres"]);
+				$usuario->setApellidos($_POST["apellidos"]);
+				$usuario->setFechaNacimiento($_POST["fechaNacimiento"]);
+				$usuario->setNombreUsuario($_POST["nombreUsuario"]);
+				$usuario->setPass($_POST["pass"]);
+				$usuario->setPass2($_POST["pass2"]);
+				$usuario->setActivo(1);
+
+				echo $usuario->nombres;
+
+				$usuarioControl = new UsuarioControl($usuario);
+				$return = $usuarioControl->agregarUsuario();
+
+				if($return) {
+				?>
+					<script type="text/javascript" >
+						alert("El usuario fue agregado exitosamente!");
+					</script>
+				<?php
+				}
+				else {
+				?>
+					<script type="text/javascript" >
+						alert("Ocurrió un error. El usuario no fue guardado!.");
+					</script>
+				<?php
+				}
+			}
+		}
+		else {}
+	?>
 </body>
 </html>
