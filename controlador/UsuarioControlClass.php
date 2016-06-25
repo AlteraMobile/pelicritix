@@ -47,6 +47,7 @@ class UsuarioControl{
 
 	// Métodos
 	public function agregarUsuario() {
+		echo "3";
 		// Validación de Formulario para agregar Usuario
 		$usuario = $this->usuario;
 
@@ -80,9 +81,10 @@ class UsuarioControl{
 			return false;
 		}
 		else {
+			echo "4";
 			$resultado = $this->daoUsuario->agregar($usuario);
 			$this->conexion->cerrarConexion();
-			unset($this->usuario);
+			//unset($this->usuario);
 			return $resultado;
 		}
 	}
@@ -91,15 +93,16 @@ class UsuarioControl{
 		$usuarios = $this->daoUsuario->listar();
 		
 		foreach ($usuarios as $usuario){
-			echo '<tr><td>'.$usuario->usuarioId.'</td>';
-			echo '<td>'.$usuario->nombres.'</td>';
-			echo '<td>'.$usuario->fechaNacimiento.'</td>';
-			echo '<td>'.$usuario->nombreUsuario.'</td>';
+			echo '<tr><td>'.$usuario->getUsuarioId().'</td>';
+			echo '<td>'.$usuario->getNombres().'</td>';
+			echo '<td>'.$usuario->getApellidos().'</td>';
+			echo '<td>'.$usuario->getFechaNacimiento().'</td>';
+			echo '<td>'.$usuario->getNombreUsuario().'</td>';
 			echo '<td>';
-			echo '<button class="btn btn-default btn-xs modificar_usuario" id="'.$usuario->usuarioId.'">
+			echo '<button class="btn btn-default btn-xs modificar_usuario" id="'.$usuario->getUsuarioId().'">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</button>
-			<button class="btn btn-default btn-xs eliminar_usuario" id="'.$usuario->usuarioId.'">
+			<button class="btn btn-default btn-xs eliminar_usuario" id="'.$usuario->getUsuarioId().'">
 				<span class="glyphicon glyphicon-remove" ></span>
 			</button></td></tr>';
 		}

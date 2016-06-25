@@ -21,6 +21,7 @@ class UsuarioDAO{
 	}
 
 	public function agregar($usuario){
+		echo "3";
 		$nombres 			= $usuario->getNombres();
 		$apellidos 			= $usuario->getApellidos();
 		$fechaNacimiento 	= $usuario->getFechaNacimiento();
@@ -29,13 +30,17 @@ class UsuarioDAO{
 		$activo 			= $usuario->getActivo();
 
 		$sql = "INSERT INTO usuarios (nombres, apellidos, fecha_nacimiento, nombre_usuario, pass, activo) VALUES ('".$nombres."','".$apellidos."','".$fechaNacimiento."','".$nombreUsuario."','".$pass."','".$activo."')";
-		if($this->conn->querys($sql)){
+		$this->conn->abrirConexion();
+		if( $this->conn->querys($sql) ){
 			return true;
+			echo "2";
 		}
 		else {
 			return false;
 		}
+		$this->conn->cerrarConexion();
 	}
+
 	public function actualizar($usuario){
 		$nombres = $usuario->getNombres();
 		$apellidos = $usuario->getApellidos();
@@ -48,6 +53,7 @@ class UsuarioDAO{
 		$query->bind_param($nombres, $apellidos, $fecha_nacimiento, $nombre_usuario, $pass, $activo, $usuario_id);
 		return $conn->execute();
 	}
+
 	public function eliminar($usuarioId){
 		$query = $this->conn->getConexion()->prepare("DELETE FROM usuarios WHERE usuario_id = ?");
 		$query->bind_param($usuario_id);
@@ -55,7 +61,7 @@ class UsuarioDAO{
 	}
 	public function listar()
 		{
-			$sql = "SELECT usuario_id, nombres, apellidos, fecha_nacimiento, nombre_usuario FROM usuarios WHERE activo = 1";
+			$sql = "SELECT usuario_id, nombres, apellidos, fecha_nacimiento, nombre_usuario FROM usuarios WHERE activo = '1'";
 			$this->conn->abrirConexion();
 			$resultado = $this->conn->select($sql);
 			$usuarios = array();
@@ -67,7 +73,6 @@ class UsuarioDAO{
 				$usuario->setApellidos($fila['apellidos']);
 				$usuario->setFechaNacimiento($fila['fecha_nacimiento']);
 				$usuario->setNombreUsuario($fila['nombre_usuario']);
-				$usuario->setActivo($fila['activo']);
 				$usuarios[] = $usuario;
 			}
 			$this->conn->cerrarConexion();
