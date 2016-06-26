@@ -47,10 +47,10 @@
  		else {}
 
 	if(isset($_GET['operacion']) && $_GET['operacion'] == 'eliminar'){
-		$id = $_GET['id'];
+		$id 			= $_GET['id'];
 		$usuarioControl = new UsuarioControl();
-		$return = $usuarioControl->eliminarUsuario($id);
-		if($return){
+		$return 		= $usuarioControl->eliminarUsuario($id);
+		if( $return ) {
 			?>
 				<script type="text/javascript">
 					alert("El usuario fue eliminado correctamente!");
@@ -210,10 +210,10 @@
 		    	return true;
 		    }
 		};
-		function eliminar(id){
+		function eliminar( id ) {
 			window.location.href = "registro_usuario.php?operacion=eliminar&id="+id;
 		};
-		function modificar(id){
+		function modificar( id ) {
 			window.location.href = "registro_usuario_mod.php?operacion=modificar&id="+id;
 		};
 	</script>

@@ -8,10 +8,10 @@
 
 	$session = new SessionControl();
 	// Buscar Usuario
-	if(isset($_GET['operacion']) && $_GET['operacion'] == 'modificar') {
+	if( isset($_GET['operacion']) && $_GET['operacion'] == 'modificar' ) {
 		
-		$usuarioControl = new UsuarioControl();
-		$resultado = $usuarioControl->buscarUsuario($_GET['id']);
+		$usuarioControl 		= new UsuarioControl();
+		$resultado 				= $usuarioControl->buscarUsuario( $_GET['id'] );
 		if(!empty($resultado) ){
 			$id					= $resultado->getUsuarioId();
 			$nombres 			= $resultado->getNombres();
@@ -26,7 +26,7 @@
 
  		if( isset($_REQUEST["nombres"]) && isset($_REQUEST["apellidos"]) && isset($_REQUEST["fechaNacimiento"])
  			&& isset($_REQUEST["nombreUsuario"]) &&	isset($_REQUEST["pass"]) &&	isset($_REQUEST["pass2"]) ) {
- 				$usuario = new Usuario();
+ 				$usuario 			= new Usuario();
  				
  				$usuario->setUsuarioId($_POST['id']);
  				$usuario->setNombres($_POST["nombres"]);
@@ -37,11 +37,11 @@
  				$usuario->setPass2($_POST["pass2"]);
  				$usuario->setActivo(1);
  
- 				$usuarioControl = new UsuarioControl();
+ 				$usuarioControl 	= new UsuarioControl();
  				$usuarioControl->setUsuario($usuario);
- 				$return = $usuarioControl->modificarUsuario();
+ 				$return 			= $usuarioControl->modificarUsuario();
  
- 				if($return) {
+ 				if( $return ) {
  				?>
  					<script type="text/javascript" >
  					alert("El usuario fue modificado exitosamente!");

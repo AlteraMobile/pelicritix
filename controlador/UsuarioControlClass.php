@@ -18,26 +18,14 @@ class UsuarioControl{
 	}
 
 	// Accesadores
-	public function getConexion(){
-		return $this->conexion;
-	}
-	public function getDaoUsuario(){
-		return $this->daoUsuario;
-	}
-	public function getUsuario(){
-		return $this->usuario;
-	}
+	public function getConexion() 	{ return $this->conexion;	}
+	public function getDaoUsuario()	{ return $this->daoUsuario;	}
+	public function getUsuario()	{ return $this->usuario; 	}
 
 	// Mutadores
-	public function setConexion($conexion){
-		$this->conexion = $conexion;
-	}
-	public function setDaoUsuario($daoUsuario){
-		$this->daoUsuario = $daoUsuario;
-	}
-	public function setUsuario($usuario){
-		$this->usuario = $usuario;
-	}
+	public function setConexion($conexion)		{ $this->conexion = $conexion;		}
+	public function setDaoUsuario($daoUsuario)	{ $this->daoUsuario = $daoUsuario;	}
+	public function setUsuario($usuario)		{ $this->usuario = $usuario;		}
 
 	// Métodos
 	public function agregarUsuario() {
@@ -84,7 +72,7 @@ class UsuarioControl{
 
 	public function buscarUsuario($id) {
 		$usuarios = $this->daoUsuario->buscar($id);		
-		foreach ($usuarios as $usuario) {
+		foreach ( $usuarios as $usuario ) {
 			$usuario->getUsuarioId();
 			$usuario->getNombres();
 			$usuario->getApellidos();

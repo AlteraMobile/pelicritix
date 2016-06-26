@@ -73,7 +73,6 @@ class UsuarioDAO{
 				  , nombre_usuario = '".$nombreUsuario."',
 				  , pass = '".$pass."' WHERE usuario_id = ".$usuarioId;
 		$this->conn->abrirConexion();
-		//return $preparar_consulta->execute();
 		if( $this->conn->querys($sql) ){
 			return true;
 		}
