@@ -1,4 +1,11 @@
 <?php 
+	require_once('../../config/paths.php');
+	require_once('../../entidades/PeliculaClass.php');
+	require_once('../../controlador/SessionControlClass.php');
+	require_once('../../controlador/PeliculaControlClass.php');
+
+	$session = new SessionControl();
+
 	require_once('header.php');
 ?>
 		<header class="container">
@@ -17,81 +24,15 @@
 						<tr>
 							<td>Id</td>
 							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
 							<td>Año producción</td>
 							<td>Acciones</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="1" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="2" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="3" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="4" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="5" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>Título</td>
-							<td>Genero</td>
-							<td>Director</td>
-							<td>Año producción</td>
-							<td>
-								<button id="6" class="btn btn-default btn-xs btn_mod_pelicula"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
+						<?php
+						$peliculaControl = new PeliculaControl();
+						$peliculaControl->listarPeliculas();
+					?>
 					</tbody>
 				</table>
 

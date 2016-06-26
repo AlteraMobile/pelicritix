@@ -15,10 +15,7 @@ class Actor{
 		$this->nombre 	= "";
 		$this->apellido = "";	
 	} 
-	function __construct($nombre, $apellido){
-		$this->nombre 	= $nombre;
-		$this->apellido = $apellido;
-	}
+	
 
 	// Accesadores
 	public function getActorId(){
@@ -32,6 +29,9 @@ class Actor{
 	}
 
 	// Mutadores
+	public function setActorId($actorId){
+		$this->actor_id = $actorId;
+	}
 	public function setNombre($nombre){
 		$this->nombre = $nombre;
 	}

@@ -1,4 +1,11 @@
 <?php 
+	require_once('../../config/paths.php');
+	require_once('../../entidades/DirectorClass.php');
+	require_once('../../controlador/SessionControlClass.php');
+	require_once('../../controlador/DirectorControlClass.php');
+
+	$session = new SessionControl();
+
 	require_once('header.php');
 ?>
 		<header class="container">
@@ -32,65 +39,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Juan</td>
-							<td>Perez</td>
-							<td>
-								<button id="1" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Maria</td>
-							<td>Fernanez</td>
-							<td>
-								<button id="2" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Juan</td>
-							<td>Perez</td>
-							<td>
-								<button id="3" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
+					<?php
 
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>Maria</td>
-							<td>Fernanez</td>
-							<td>
-								<button id="4" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Juan</td>
-							<td>Perez</td>
-							<td>
-								<button id="5" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Maria</td>
-							<td>Fernanez</td>
-							<td>
-								<button id="6" class="btn btn-default btn-xs btn_mod_actor"><span class="glyphicon glyphicon-pencil"></span> </button> 
-								<button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove "></span></button>
-							</td>
-						</tr>
+						$directorControl = new DirectorControl();
+						$directorControl->listarDirectores();
+					?>
+				
 					</tbody>
 				</table>
 			</div>
+
+
 
 
 			<div class="espacio"></div>

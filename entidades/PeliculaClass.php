@@ -24,6 +24,7 @@ class Pelicula{
 
 	// Cosntructores
 	function __construct(){
+		$this->pelicula_id="";
 		$this->titulo = "";
 		$this->subtitulo = "";
 		$this->fecha_estreno = "";
@@ -38,24 +39,9 @@ class Pelicula{
 		$this->genero_id = "";
 		$this->critica_id = "";
 		$this->director_id = "";
-	}
-	function __construct($titulo, $subtitulo, $fecha_estreno, $ano_produccion, $duracion, $nota, $color, $lo_mejor, $lo_peor, $img_portada, $url_trailer, $genero_id, $critica_id, $director_id){
-			$this->titulo 	= $titulo;
-			$this->subtitulo = $subtitulo;
-			$this->fecha_estreno = $fecha_estreno;
-			$this->ano_produccion = $ano_produccion;
-			$this->duracion = $duracion;
-			$this->nota = $nota;
-			$this->color = $color;
-			$this->lo_mejor = $lo_mejor;
-			$this->lo_peor = $lo_peor;
-			$this->img_portada = $img_portada;
-			$this->url_trailer = $url_trailer;
-			$this->genero_id = $genero_id;
-			$this->critica_id = $critica_id;
-			$this->director_id = $director_id;
-		}
 
+	}
+	
 	// Accesadores
 	public function getPeliculaId(){
 		return $this->pelicula_id;
@@ -104,6 +90,9 @@ class Pelicula{
 	}
 
 	// Mutadores
+	public function setPeliculaId($pelicula_id){
+		$this->pelicula_id = $pelicula_id;
+	}
 	public function setTitulo($titulo){
 		$this->titulo = $titulo;
 	}
@@ -111,7 +100,7 @@ class Pelicula{
 		$this->subtitulo = $subtitulo;
 	}
 	public function setFechaEstreno($fecha_estreno){
-		$this->fecha_estreno = $fecha_estreno:
+		$this->fecha_estreno = $fecha_estreno;
 	}
 	public function setAnoProduccion($ano_produccion){
 		$this->ano_produccion = $ano_produccion;
@@ -137,15 +126,7 @@ class Pelicula{
 	public function setUrlTrailer($url_trailer){
 		$this->url_trailer = $url_trailer;
 	}
-	public function setGeneroId($genero_id){
-		$this->genero_id = $genero_id;
-	}
-	public function setCriticaId($critica_id){
-		$this->critica_id = $critica_id;
-	}
-	public function setDirectorId($director_id){
-		$this->director_id = $director_id;
-	}
+
 	
 } // end Class
 ?>

@@ -6,32 +6,32 @@
 class Director{
 	
 	// Atributos
-	private $director_id;
+	private $directorId;
 	private $nombre;
 	private $apellido;
 
 	// Construcotres
 	function __construct(){
+		$this->directorId = "";
 		$this->nombre = "";
 		$this->apellido = "";
 	}
-	function __construct($nombre, $apellido){
-		$this->nombre 	= $nombre;
-		$this->apellido = $apellido;
-	}
-
+	
 	// Accesadores
 	public function getDirectorId(){
-		return $this->director_id;
+		return $this->directorId;
 	}
 	public function getNombre(){
 		return $this->nombre;
 	}
 	public function getApellido(){
-		return $this->nombre;
+		return $this->apellido;
 	}
 
 	// Mutadores
+	public function setDirectorId($directorId){
+		$this->directorId = $directorId;
+	}
 	public function setNombre($nombre){
 		$this->nombre = $nombre;
 	}

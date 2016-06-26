@@ -1,5 +1,16 @@
 <?php
+	
+	require_once('../../config/paths.php');
+	require_once('../../entidades/CategoriaClass.php');
+	require_once('../../controlador/SessionControlClass.php');
+	require_once('../../controlador/CategoriaControlClass.php');
+	require_once('../../controlador/DirectorControlClass.php');
+	require_once('../../controlador/ActorControlClass.php');
+	require_once('../../controlador/GeneroControlClass.php');
+
+	
 	require_once('header.php');
+	
 ?>
 	<header class="container">
 		<div class="row">
@@ -47,17 +58,19 @@
 				<div class="form-group col-lg-2 col-sm-4">
 					<label for="genero">Genero</label>
 					<select class="form-control input-sm" id="genero" name="genero">
-						<option>Película</option>
-				        <option>Documental</option>
-				        <option>Cortometraje</option>
+						<?php
+						$generoControl = new GeneroControl();
+						$generoControl->comboGenero();
+						?>
       				</select>
 				</div>
 				<div class="form-group col-lg-2 col-sm-4">
 					<label for="color">Director</label>
 					<select class="form-control input-sm" id="director" name="director">
-						<option>Director</option>
-				        <option>Spielberg</option>
-				        <option>Cohen</option>
+						<?php
+						$directorControl = new DirectorControl();
+						$directorControl->comboDirectores();
+						?>
       				</select>
 				</div>
 				<div class="form-group col-lg-6 col-sm-6">
@@ -79,25 +92,22 @@
 				<div class="form-group col-lg-3 col-sm-6">
 					<label for="categoria">Categoría*</label>
 				    <select multiple class="form-control input-sm" id="categoria" name="categoria">
-					    <option>Acción</option>
-					    <option>Drama</option>
-					    <option>Comedia</option>
-					    <option>Terror</option>
-					    <option>Acción</option>
-					    <option>Drama</option>
-					    <option>Comedia</option>
-					    <option>Terror</option>
+					    <?php
+
+						$categoriaControl = new CategoriaControl();
+						$categoriaControl->listarCategorias();
+						?>
 				    </select>
 				</div>
 
 				<div class="form-group col-lg-3 col-sm-6">
 					<label for="reparto">Reparto</label>
 				    <select multiple class="form-control input-sm" id="reparto" name="reparto">
-					    <option>Juan</option>
-					    <option>Maria</option>
-					    <option>Lukas</option>
-					    <option>Fernando</option>
-					    <option>Ignacia</option>
+					    <?php
+
+						$actorControl = new ActorControl();
+						$actorControl->comboReparto();
+						?>
 				    </select>
 				</div>
 

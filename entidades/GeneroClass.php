@@ -11,11 +11,10 @@ class Genero{
 
 	// Mutadores
 	function __construct(){
+		$this->generoId = "";
 		$this->descripcion = "";
 	}
-	function __construct($descripcion){
-		$this->descripcion 	= $descripcion;
-	}
+	
 
 	// Accesadores
 	public function getGeneroId(){
@@ -26,6 +25,10 @@ class Genero{
 	}
 
 	// Mutadores
+	public function setGeneroId($generoId){
+		return $this->genero_id = $generoId;
+	}
+
 	public function setDescripcion($descripcion){
 		$this->descripcion = $descripcion;
 	}

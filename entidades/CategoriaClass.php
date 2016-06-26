@@ -11,10 +11,8 @@ class Categoria{
 
 	// Constructores
 	function __construct(){
+		$this->categoria_id = "";
 		$this->descripcion = "";
-	}
-	function __construct($descripcion){
-		$this->descripcion 	= $descripcion;
 	}
 
 	// Accesadores
@@ -26,8 +24,11 @@ class Categoria{
 	}
 
 	// Mutadores
-	public function setDescripcion(){
-		$this->descripcion;
+	public function setCategoriaId($categoriaId){
+		$this->categoria_id= $categoriaId;
+	}
+	public function setDescripcion($descripcion){
+		$this->descripcion= $descripcion;
 	}
 } // end Class
 ?>
