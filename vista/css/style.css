@@ -262,7 +262,7 @@ h4{
 ================================================== Forms Admin
 ==============================================================
 */
-#form_nuevo, #form_modificar, #form_mod_pelicula, #form_slider, #form_mod_slider, #form_mod_usuario{display: none;}
+#form_nuevo, #form_modificar, #form_mod_pelicula, #form_slider, #form_mod_slider, #form_mod_usuario{}
 
 
 /*

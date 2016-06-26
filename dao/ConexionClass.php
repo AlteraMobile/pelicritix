@@ -17,8 +17,7 @@ class Conexion{
 	function __construct(){
 		$this->conn = new mysqli($this->host, $this->user, $this->pass, $this->database);
 		$this->conn->set_charset("utf8");
-	}
-	
+	}	
 
 	// Accesadores
 	public function getConexion(){
@@ -40,7 +39,6 @@ class Conexion{
 			if( $this->conn->affected_rows > 0 ){
 
 				$comprobador = true;
-				echo "ok";
 			}
 		}
 		return $comprobador;

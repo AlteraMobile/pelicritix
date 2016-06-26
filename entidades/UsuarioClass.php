@@ -26,7 +26,7 @@ class Usuario{
 		$this->pass2 = "";
 		$this->activo = "";
 	}
-	function Usuario($usuarioId, $nombres, $apellidos, $fecha_nacimiento, $nombre_usuario, $pass, $pass2, $activo){
+	function Usuario($nombres, $apellidos, $fecha_nacimiento, $nombre_usuario, $pass, $pass2, $activo){
 		$this->usuarioId = '';
 		$this->nombres 	= $nombres;
 		$this->apellidos = $apellidos;
