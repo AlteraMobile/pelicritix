@@ -35,11 +35,13 @@
 						<h4> <br> Directores </h4></span>
 					</button>
 				</a> 
+				<!--
 				<a href="sliders.php">
 					<button class="btn btn-info btn-lg col-sm-2 col-sm-offset-1 col-xs-4 col-xs-offset-1 inicio"><span class="glyphicon glyphicon-picture"> <br> <br>
 						<h4><br> Slider</h4></span>
 					</button>
 				</a>
+				-->
 				<a href="registro_usuario.php">
 					<button class="btn btn-info btn-lg col-sm-2 col-sm-offset-1 col-xs-4 col-xs-offset-1 inicio"><span class="glyphicon glyphicon-user"> <br> <br>
 						<h4> <br> Usuarios</h4></span>

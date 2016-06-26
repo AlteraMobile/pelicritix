@@ -35,11 +35,13 @@
 		      			<span class="glyphicon glyphicon-bullhorn"></span> Directores
 		      		</a>
 		      	</li>
+		      	<!--
 		      	<li>
 					<a href="sliders.php">
 		      			<span class="glyphicon glyphicon-picture"></span> Sliders
 		      		</a>
 		      	</li>
+		      	-->
 	      		<li>					      	
 					<a href="registro_usuario.php">
 	    	  			<span class="glyphicon glyphicon-user"></span> Registro Usuario
