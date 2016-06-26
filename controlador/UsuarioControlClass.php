@@ -97,10 +97,11 @@ class UsuarioControl{
 		
 	}
 	public function modificarUsuario() {
-		
+
 		// Validación de Formulario para agregar Usuario
 		$usuario = $this->usuario;
 
+		$usuarioId 			= $usuario->getUsuarioId();
 		$nombres 			= $usuario->getNombres();
 		$apellidos 			= $usuario->getApellidos();
 		$fechaNacimiento 	= $usuario->getFechaNacimiento();
@@ -131,6 +132,7 @@ class UsuarioControl{
 			return false;
 		}
 		else {
+
 			$resultado = $this->daoUsuario->modificar($usuario);
 			$this->conexion->cerrarConexion();
 			unset($this->usuario);

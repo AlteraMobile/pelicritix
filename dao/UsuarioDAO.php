@@ -57,7 +57,8 @@ class UsuarioDAO{
 			return $usuarios;
 	}
 	public function modificar($usuario){
-		$id 				= $usuario->getUsuarioId();
+
+		$usuarioId 			= $usuario->getUsuarioId();
 		$nombres 			= $usuario->getNombres();
 		$apellidos 			= $usuario->getApellidos();
 		$fechaNacimiento 	= $usuario->getFechaNacimiento();
@@ -66,15 +67,13 @@ class UsuarioDAO{
 		$activo 			= $usuario->getActivo();
 
 		$sql = "UPDATE usuarios 
-				SET nombres = ['".$nombres."']
+				SET nombres = '".$nombres."'
 				  , apellidos = '".$apellidos."'
 				  , fecha_nacimiento = '".$fechaNacimiento."'
-				  , nombre_usuario = '".$nombreUsuario."'
-				  , pass = '".$pass."'
-				  , activo = '".$activo."' 
-				WHERE usuario_id = '".$id."'" ;
-
+				  , nombre_usuario = '".$nombreUsuario."',
+				  , pass = '".$pass."' WHERE usuario_id = ".$usuarioId;
 		$this->conn->abrirConexion();
+		//return $preparar_consulta->execute();
 		if( $this->conn->querys($sql) ){
 			return true;
 		}
@@ -83,7 +82,6 @@ class UsuarioDAO{
 		}
 		$this->conn->cerrarConexion();
 	}
-
 	public function eliminar($usuarioId){
 		$sql = "DELETE FROM usuarios WHERE usuario_id ='".$usuarioId."'";
 		$this->conn->abrirConexion();
@@ -95,7 +93,6 @@ class UsuarioDAO{
 		}
 		$this->conn->cerrarConexion();
 	}
-
 	public function listar()
 		{
 			$sql = "SELECT usuario_id, nombres, apellidos, fecha_nacimiento, nombre_usuario FROM usuarios WHERE activo = '1'";

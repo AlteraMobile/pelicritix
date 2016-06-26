@@ -22,12 +22,13 @@
 		}
 	}
 	// Modificar Usuario
-	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'modificar'){
+	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'editar'){
+
  		if( isset($_REQUEST["nombres"]) && isset($_REQUEST["apellidos"]) && isset($_REQUEST["fechaNacimiento"])
  			&& isset($_REQUEST["nombreUsuario"]) &&	isset($_REQUEST["pass"]) &&	isset($_REQUEST["pass2"]) ) {
- 				
  				$usuario = new Usuario();
- 			
+ 				
+ 				$usuario->setUsuarioId($_POST['id']);
  				$usuario->setNombres($_POST["nombres"]);
  				$usuario->setApellidos($_POST["apellidos"]);
  				$usuario->setFechaNacimiento($_POST["fechaNacimiento"]);
@@ -77,8 +78,9 @@
 			
 			<div id="form_mod_usuario" title="Modificar Usuario">
 				<h2>Modificar Usuario</h2>
-				<form role="form" name="mod_usuario" onsubmit="return validarFormModUsuario()">
+				<form role="form" name="mod_usuario" method="post" onsubmit="return validarFormModUsuario()">
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
+					<input type="hidden" name="operacion" value="editar">
 					<div class="form-group col-lg-6 col-sm-6">
 						<label for="titulo">Nombres*</label>
 						<input type="text" class="form-control input-sm" id="nombres" name="nombres" placeholder="Nombres" value="<?php echo $nombres; ?>">
@@ -92,7 +94,7 @@
 						<input type="date" class="form-control input-sm" id="fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de Nacimiento" value="<?php echo $fechaNacimiento; ?>">
 					</div>
 					<div class="form-group col-lg-6 col-sm-6">
-						<label for="produccion">Nombre de Usuario*</label><input type="text" class="form-control input-sm" id="nom_usu" name="nom_usu" placeholder="Nombre de Usuario" value="<?php echo $nombreUsuario; ?>">
+						<label for="produccion">Nombre de Usuario*</label><input type="text" class="form-control input-sm" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario" value="<?php echo $nombreUsuario; ?>">
 					</div>
 					<div class="form-group col-lg-6 col-sm-6">
 					  <label>Contraseña*</label>
@@ -117,9 +119,10 @@
 ?>
 	<script type="text/javascript">
 		function validarFormModUsuario() {
+
 		    var nombres 		= document.forms["mod_usuario"]["nombres"].value.trim();
 		    var apellidos 		= document.forms["mod_usuario"]["apellidos"].value.trim();
-		    var fechaNacimiento = document.forms["mod_usuario"]["fecha"].value.trim();
+		    var fechaNacimiento = document.forms["mod_usuario"]["fechaNacimiento"].value.trim();
 		    var nombreUsuario 	= document.forms["mod_usuario"]["nombreUsuario"].value.trim();
 		    var pass 			= document.forms["mod_usuario"]["pass"].value.trim();
 		    var pass2 			= document.forms["mod_usuario"]["pass2"].value.trim();
@@ -144,7 +147,7 @@
 		    	alert("Debe ingresar una Fecha.");
 		    	return false;
 		    }
-		   	else if (nombreUsuario == null || nom_usu ==""){
+		   	else if (nombreUsuario == null || nombreUsuario ==""){
 		    	alert("Debe ingresar un Nombre de Usuario.");
 		    	return false;
 		    }

@@ -35,12 +35,13 @@ class Conexion{
 	}
 	public function querys($query){
 		$comprobador = false;
-		if( $this->conn->query($query) ){
+		if( $this->conn->query($query) ){			
 			if( $this->conn->affected_rows > 0 ){
-
 				$comprobador = true;
 			}
 		}
+		else{
+	}
 		return $comprobador;
 	}
 	public function select($query)

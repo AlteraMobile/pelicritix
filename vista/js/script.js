@@ -111,15 +111,4 @@ jQuery(document).ready(function($) {
   		} );
 	});
 
-	
-	
-		
-
-	/*
-	$( "#estreno" ).datepicker({
-      		changeMonth: true,
-      		changeYear: true
-   	});
-	*/
-
 });
