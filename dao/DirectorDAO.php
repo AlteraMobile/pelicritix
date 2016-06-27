@@ -13,11 +13,6 @@ class DirectorDAO{
 	}
 
 	// Métodos
-	public function buscarDirectorID($director){
-		
-	}
-	
-
 	public function agregar($director){
 		$nombres 	= $director->getNombre();
 		$apellidos	= $director->getApellido();

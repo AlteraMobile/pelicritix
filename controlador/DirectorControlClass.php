@@ -89,21 +89,20 @@ class DirectorControl{
 			echo '<button
 					name="operacion"
 					value="modificar"
-					class="btn btn-default btn-xs modificar_usuario" 
+					 
 					id="'.$director->getDirectorId().'"
 					onClick="modificar('.$director->getDirectorId().');"
-					>
-				<span class="glyphicon glyphicon-pencil"></span>
-			</button>
-			<button 
+					class="btn btn-default btn-xs modificar_usuario"
+					><span class="glyphicon glyphicon-pencil"></span>
+				</button>
+				<button 
 					name="operacion"
 					value="eliminar"
-					class="btn btn-default btn-xs eliminar_usuario"
 					id="'.$director->getDirectorId().'"
 					onClick="eliminar('.$director->getDirectorId().');"
-					>
-				<span class="glyphicon glyphicon-remove" ></span>
-			</button></td></tr>';
+					class="btn btn-default btn-xs eliminar_usuario"
+					><span class="glyphicon glyphicon-remove" ></span>
+				</button></td></tr>';
 		}
 	}
 
