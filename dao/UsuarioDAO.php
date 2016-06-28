@@ -25,15 +25,10 @@ class UsuarioDAO{
 		$nombreUsuario 		= $usuario->getNombreUsuario();
 		$pass 				= $usuario->getPass();
 		$activo 			= $usuario->getActivo();
-
 		$sql = "INSERT INTO usuarios (nombres, apellidos, fecha_nacimiento, nombre_usuario, pass, activo) VALUES ('".$nombres."','".$apellidos."','".$fechaNacimiento."','".$nombreUsuario."','".$pass."','".$activo."')";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if( $this->conn->querys($sql) )	{	return true;	}
+		else 							{	return false;	}
 		$this->conn->cerrarConexion();
 	}
 	public function buscar($id){
@@ -41,7 +36,6 @@ class UsuarioDAO{
 		$this->conn->abrirConexion();
 			$resultado = $this->conn->select($sql);
 			$usuarios = array();
-
 			while( $fila = $resultado->fetch_array() ) {
 				$usuario = new Usuario();
 				$usuario->setUsuarioId($fila['usuario_id']);
@@ -65,20 +59,17 @@ class UsuarioDAO{
 		$nombreUsuario 		= $usuario->getNombreUsuario();
 		$pass 				= $usuario->getPass();
 		$activo 			= $usuario->getActivo();
-
-		$sql = "UPDATE usuarios 
-				SET nombres = '".$nombres."'
-				  , apellidos = '".$apellidos."'
-				  , fecha_nacimiento = '".$fechaNacimiento."'
-				  , nombre_usuario = '".$nombreUsuario."',
-				  , pass = '".$pass."' WHERE usuario_id = ".$usuarioId;
+		$sql = "UPDATE usuarios SET
+				 	nombres = '$nombres'
+				  , apellidos = '$apellidos'
+				  , fecha_nacimiento = '$fechaNacimiento'
+				  , nombre_usuario = '$nombreUsuario',
+				  , pass = '$pass' 
+				  WHERE 
+				  usuario_id = '$usuarioId'";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if( $this->conn->querys($sql) )	{	return true;	}
+		else 							{	return false;	}
 		$this->conn->cerrarConexion();
 	}
 	public function eliminar($usuarioId){
@@ -98,7 +89,6 @@ class UsuarioDAO{
 			$this->conn->abrirConexion();
 			$resultado = $this->conn->select($sql);
 			$usuarios = array();
-
 			while( $fila = $resultado->fetch_array() ) {
 				$usuario = new Usuario();
 				$usuario->setUsuarioId($fila['usuario_id']);

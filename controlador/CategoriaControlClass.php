@@ -12,7 +12,7 @@ class CategoriaControl{
 
 	// Constructores
 	function __construct(){
-		$this->conexion 	= new Conexion();
+		$this->conexion 		= new Conexion();
 		$this->daoCategoria 	= new CategoriaDAO($this->conexion);
 		$this->categoria 		= new Categoria();
 	}
@@ -41,12 +41,15 @@ class CategoriaControl{
 	}
 
 	// Métodos
-	
+	public function buscarCategoria($categoriaId) {
+		$resultado = $this->daoCategoria->buscar($categoriaId);
+		return $resultado;
+	}
 	public function listarCategorias() {
 		$categorias = $this->daoCategoria->listar();
 		
 		foreach ($categorias as $categoria){
-			echo '<OPTION VALUE="'.$categoria->getCategoriaId().'">'.$categoria->getDescripcion().'</option>';
+			echo '<OPTION VALUE="'.$categoria->getCategoriaId().'" >'.$categoria->getDescripcion().'</option>';
 			
 		}
 	}

@@ -29,8 +29,6 @@ class UsuarioControl{
 
 	// Métodos
 	public function agregarUsuario() {
-		
-		// Validación de Formulario para agregar Usuario
 		$usuario = $this->usuario;
 
 		$nombres 			= $usuario->getNombres();

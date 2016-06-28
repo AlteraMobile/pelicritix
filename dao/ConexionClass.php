@@ -40,8 +40,6 @@ class Conexion{
 				$comprobador = true;
 			}
 		}
-		else{
-	}
 		return $comprobador;
 	}
 	public function select($query)

@@ -22,7 +22,7 @@
 			    	</a>
 			    	<ul class="dropdown-menu">
 			    		<li><a href="add_pelicula.php">Agregar película</a></li>
-			      		<li><a href="mod_pelicula.php">Modificar/Eliminar película</a></li>
+			      		<li><a href="list_pelicula.php">Lista de Película</a></li>
 			      	</ul>
 				</li>
 	      		<li>

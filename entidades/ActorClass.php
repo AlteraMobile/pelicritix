@@ -22,7 +22,7 @@ class Actor{
 	public function getApellido() 	{ return $this->apellido;	}
 
 	// Mutadores
-	public function setActorId($actorId) 	{ $this->actor_id 	= $actorId;	}
+	public function setActorId($actorId) 	{ $this->actor_id 	= $actorId;		}
 	public function setNombre($nombre)		{ $this->nombre 	= $nombre;		}
 	public function setApellido($apellido)	{ $this->apellido 	= $apellido;	}
 

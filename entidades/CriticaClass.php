@@ -6,47 +6,34 @@
 class Critica{
 
 	// Atributos
-	private $critica_id;
+	private $criticaId;
 	private $comentario;
-	private $fecha_critica;
-	private $usuario_id;
+	private $fechaCritica;
+	private $peliculaId;
+	private $usuarioId;
 
 	// Constructores
 	function __construct(){
-		$this->comentario = "";
-		$this->fecha_critica = "";
-		$this->usuario_id = "";
-	}
-	function Critica($comentario, $fecha_critica, $usuario_id){
-		$this->comentario 	= $comentario;
-		$this->fecha_critica = $fecha_critica;
-		$this->usuario_id = $usuario_Id;
+		$this->criticaId 	= "";
+		$this->comentario 	= "";
+		$this->fechaCritica = "";
+		$this->peliculaId 	= "";
+		$this->usuarioId 	= "";
 	}
 
 	// Accesadores
-	public function getCriticaId(){
-		return $this->critica_id;
-	}
-	public function getComentario(){
-		return $this->comentario;
-	}
-	public function getFechaCritica(){
-		return $this->fecha_critica;
-	}
-	public function getUsuarioId(){
-		return $this->usuario_id;
-	}
+	public function getCriticaId()		{ return $this->criticaId;		}
+	public function getComentario()		{ return $this->comentario;		}
+	public function getFechaCritica()	{ return $this->fechaCritica;	}
+	public function getUsuarioId()		{ return $this->usuarioId;		}
+	public function getPeliculaId()		{ return $this->peliculaId;		}
 
 	// Mutadores
-	public function setComentario($comentario){
-		$this->comentario = $comentario;
-	}
-	public function setFechaCritica($fecha_critica){
-		$this->fecha_critica = $fecha_critica;
-	}
-	public function setUsuarioId($usuario_id){
-		$this->usuario_id = $usuario_id;
-	}
+	public function setCriticaId($criticaId)		{	$this->criticaId = $criticaId;			}
+	public function setComentario($comentario)		{	$this->comentario = $comentario;		}
+	public function setFechaCritica($fechaCritica)	{	$this->fechaCritica = $fechaCritica;	}
+	public function setUsuarioId($usuarioId)		{	$this->usuarioId = $usuarioId;			}
+	public function setPeliculaId($peliculaId)		{	$this->peliculaId = $peliculaId;		}
 
 } // end Class
 ?>

@@ -46,6 +46,7 @@
  		}
  		else {}
 
+ 	// Eliminar Usuario
 	if(isset($_GET['operacion']) && $_GET['operacion'] == 'eliminar'){
 		$id 			= $_GET['id'];
 		$usuarioControl = new UsuarioControl();

@@ -40,7 +40,11 @@ class GeneroControl{
 		$this->genero = $genero;
 	}
 
-	
+	// Métodos
+	public function buscarGenero($generoId) {
+		$resultado = $this->daoGenero->buscar($generoId);
+		return $resultado;
+	}
 
 	public function comboGenero() {
 		$generos = $this->daoGenero->listar();

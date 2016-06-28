@@ -18,12 +18,8 @@ class DirectorDAO{
 		$apellidos	= $director->getApellido();
 		$sql = "INSERT INTO directores (nombre, apellido) VALUES ('".$nombres."','".$apellidos."')";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if( $this->conn->querys($sql) ) 	{ return true; 	}
+		else 								{ return false;	}
 		$this->conn->cerrarConexion();
 	}
 	public function buscar($id){
@@ -48,33 +44,24 @@ class DirectorDAO{
 		$nombre 	= $director->getNombre();
 		$apellido 	= $director->getApellido();
 
-		$sql = "UPDATE directores SET nombre = '".$nombre."', apellido='".$apellido."' WHERE director_id = ".$id;
+		$sql = "UPDATE directores SET nombre = '$nombre', apellido='$apellido' WHERE director_id = '$id'";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		if( $this->conn->querys($sql) ) {	return true;	}
+		else 							{	return false;	}
 		$this->conn->cerrarConexion();
 	}
 	public function eliminar($directorId){
 		$sql = "DELETE FROM directores WHERE director_id ='".$directorId."'";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if( $this->conn->querys($sql) )	{	return true;	}
+		else 							{	return false;	}
 		$this->conn->cerrarConexion();
 	}
-
 	public function listar()
 		{
-			$sql = "SELECT director_id, nombre, apellido FROM directores";
+			$sql = "SELECT director_id, nombre, apellido FROM directores ORDER BY nombre ASC";
 			$this->conn->abrirConexion();
-			$resultado = $this->conn->select($sql);
+			$resultado 	= $this->conn->select($sql);
 			$directores = array();
 
 			while( $fila = $resultado->fetch_array() ) {

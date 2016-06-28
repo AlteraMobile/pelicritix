@@ -37,7 +37,6 @@ class ActorControl{
 		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos) < 3 ){	return false;	}
 		else {
 			$resultado 		= $this->daoActor->agregar($actor);
-			$this->conexion->cerrarConexion();
 			unset($this->actor);
 			return $resultado;
 		}
@@ -62,14 +61,12 @@ class ActorControl{
 		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos)) {	return false;	}
 		else {
 			$resultado 		= $this->daoActor->modificar($actor);
-			$this->conexion->cerrarConexion();
 			unset($this->actor);
 			return $resultado;
 		}
 	}
 	public function eliminarActor($id) {
 		$resultado 			= $this->daoActor->eliminar($id);
-		$this->conexion->cerrarConexion();
 		return $resultado;
 	}
 	public function listarActores() {
@@ -99,10 +96,8 @@ class ActorControl{
 	}
 	public function comboReparto() {
 		$actores = $this->daoActor->listar();
-		
 		foreach ($actores as $actorcombo){
 			echo '<OPTION VALUE="'.$actorcombo->getActorId().'">'.$actorcombo->getNombre().' '.$actorcombo->getApellido().'</option>';
-			
 		}
 	}
 }

@@ -13,22 +13,33 @@ class CategoriaDAO{
 	}
 
 	// Métodos
-	
+	public function buscar($categoriaId) {
+		$sql = "SELECT categoria_id, descripcion FROM categorias WHERE categoria_id = '".$categoriaId."'";
+		$this->conn->abrirConexion();
+		$resultado = $this->conn->select($sql);
+		$fila = $resultado->fetch_array();
+			$categoria = new Categoria();
+			$categoria->setCategoriaId($fila['categoria_id']);
+			$categoria->setDescripcion($fila['descripcion']);
+		
+		return $categoria;
+		$this->conn->cerrarConexion();
+	}
 	public function listar()
 		{
-			$sql = "SELECT categoria_id, descripcion FROM categorias";
+			$sql = "SELECT categoria_id, descripcion FROM categorias ORDER BY descripcion ASC";
 			$this->conn->abrirConexion();
 			$resultado = $this->conn->select($sql);
 			$categorias = array();
-
 			while( $fila = $resultado->fetch_array() ) {
 				$categoria = new Categoria();
 				$categoria->setCategoriaId($fila['categoria_id']);
 				$categoria->setDescripcion($fila['descripcion']);
 				$categorias[] = $categoria;
 			}
-			$this->conn->cerrarConexion();
+			
 			return $categorias;
+			$this->conn->cerrarConexion();
 		}
 
 }// end Class
