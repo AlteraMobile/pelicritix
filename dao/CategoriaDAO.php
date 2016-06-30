@@ -25,6 +25,17 @@ class CategoriaDAO{
 		return $categoria;
 		$this->conn->cerrarConexion();
 	}
+	public function buscarDescripcion($categoriaId) {
+		$sql = "SELECT descripcion FROM categorias WHERE categoria_id = '".$categoriaId."'";
+		$this->conn->abrirConexion();
+		$resultado = $this->conn->select($sql);
+		$fila = $resultado->fetch_array();
+			$categoria = new Categoria();
+			$categoria->setDescripcion($fila['descripcion']);
+		
+		return $categoria;
+		$this->conn->cerrarConexion();
+	}
 	public function listar()
 		{
 			$sql = "SELECT categoria_id, descripcion FROM categorias ORDER BY descripcion ASC";

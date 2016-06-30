@@ -23,9 +23,9 @@ class PeliculaActorControl{
 	public function getPeliculaActor()	 		{	return $this->peliculaActor;		}
 
 	// Mutadores
-	public function setConexion($conexion) 					{ 	$this->conexion = $conexion;						}
-	public function setDaoPeliculaActor($daoPeliculaActor)	{	$this->daoPeliculaActor = $daoPeliculaActor;}
-	public function setDirector($peliculaActor)				{	$this->peliculaActor = $peliculaActor;		}
+	public function setConexion($conexion) 					{ 	$this->conexion 		= $conexion;			}
+	public function setDaoPeliculaActor($daoPeliculaActor)	{	$this->daoPeliculaActor = $daoPeliculaActor;	}
+	public function setDirector($peliculaActor)				{	$this->peliculaActor 	= $peliculaActor;		}
 
 	// Métodos
 	public function agregarPeliculaActor($actorId, $peliculaId) {

@@ -28,6 +28,15 @@ class UsuarioControl{
 	public function setUsuario($usuario)		{ $this->usuario = $usuario;		}
 
 	// Métodos
+	public function loginUsuario($usuario, $pass) {
+		if( !empty($usuario) && !empty($pass) ) {
+			$resultado 		= $this->daoUsuario->login($usuario, $pass);
+			return $resultado;
+		}
+		else {
+			return false;
+		}
+	}
 	public function agregarUsuario() {
 		$usuario = $this->usuario;
 
@@ -118,10 +127,9 @@ class UsuarioControl{
 			return false;
 		}
 		else {
-
 			$resultado = $this->daoUsuario->modificar($usuario);
 			$this->conexion->cerrarConexion();
-			unset($this->usuario);
+			//unset($this->usuario);
 			return $resultado;
 		}
 	}

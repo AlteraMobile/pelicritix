@@ -13,7 +13,7 @@
 		$usuarioControl 		= new UsuarioControl();
 		$resultado 				= $usuarioControl->buscarUsuario( $_GET['id'] );
 		if(!empty($resultado) ){
-			$id					= $resultado->getUsuarioId();
+			$usuarioId			= $resultado->getUsuarioId();
 			$nombres 			= $resultado->getNombres();
 			$apellidos 			= $resultado->getApellidos();
 			$fechaNacimiento	= $resultado->getFechaNacimiento();
@@ -27,7 +27,6 @@
  		if( isset($_REQUEST["nombres"]) && isset($_REQUEST["apellidos"]) && isset($_REQUEST["fechaNacimiento"])
  			&& isset($_REQUEST["nombreUsuario"]) &&	isset($_REQUEST["pass"]) &&	isset($_REQUEST["pass2"]) ) {
  				$usuario 			= new Usuario();
- 				
  				$usuario->setUsuarioId($_POST['id']);
  				$usuario->setNombres($_POST["nombres"]);
  				$usuario->setApellidos($_POST["apellidos"]);
@@ -78,8 +77,8 @@
 			
 			<div id="form_mod_usuario" title="Modificar Usuario">
 				<h2>Modificar Usuario</h2>
-				<form role="form" name="mod_usuario" method="post" onsubmit="return validarFormModUsuario()">
-					<input type="hidden" name="id" value="<?php echo $id; ?>">
+				<form role="form" name="mod_usuario" method="post" onsubmit="return validarFormModUsuario();">
+					<input type="hidden" name="id" value="<?php echo $usuarioId; ?>" >
 					<input type="hidden" name="operacion" value="editar">
 					<div class="form-group col-lg-6 col-sm-6">
 						<label for="titulo">Nombres*</label>

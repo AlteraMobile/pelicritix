@@ -25,7 +25,7 @@ class ActorControl{
 	// Mutadores
 	public function setConexion($conexion) 	{	$this->conexion = $conexion;	}
 	public function setDaoActor($daoActor)	{	$this->daoActor = $daoActor; 	}
-	public function setActor($actor)		{	$this->actor = $actor; 			}
+	public function setActor($actor)		{	$this->actor 	= $actor; 		}
 
 	// Métodos
 	public function agregarActor() {
@@ -34,7 +34,7 @@ class ActorControl{
 		$apellidos 			= $actor->getApellido();
 		
 		if( empty($nombres) || is_null($nombres) || strlen($nombres) < 2 ) 			{	return false;	}
-		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos) < 3 ){	return false;	}
+		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos) < 2 ){	return false;	}
 		else {
 			$resultado 		= $this->daoActor->agregar($actor);
 			unset($this->actor);
@@ -50,15 +50,15 @@ class ActorControl{
 			return $actor;
 		}
 	}
+	
 	public function modificarActor() {
 		$actor = $this->actor;
-
 		$actorId 			= $actor->getActorId();
-		$nombres 			= $actor->getNombre();
-		$apellidos 			= $actor->getApellido();
+		$nombre 			= $actor->getNombre();
+		$apellido 			= $actor->getApellido();
 
-		if( empty($nombres) || is_null($nombres) || strlen($nombres) < 3 ) 		{	return false;	}
-		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos)) {	return false;	}
+		if( empty($nombre) || is_null($nombre) || strlen($nombre) < 2 ) 			{ 	return false;	}
+		elseif( empty($apellido) || is_null($apellido) || strlen($apellido) < 2) 	{	return false;	}
 		else {
 			$resultado 		= $this->daoActor->modificar($actor);
 			unset($this->actor);
@@ -99,6 +99,11 @@ class ActorControl{
 		foreach ($actores as $actorcombo){
 			echo '<OPTION VALUE="'.$actorcombo->getActorId().'">'.$actorcombo->getNombre().' '.$actorcombo->getApellido().'</option>';
 		}
+	}
+
+	public function buscarNombre($actorId) {
+		$resultado = $this->daoActor->buscar($actorId);
+		return $resultado;
 	}
 }
 ?>

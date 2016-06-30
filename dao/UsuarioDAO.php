@@ -14,8 +14,19 @@ class UsuarioDAO{
 
 	// Métodos
 	
-	public function login($nombreUsuario, $pass){
-
+	public function login($usuario, $pass){
+		$sql = "SELECT nombre_usuario, pass, activo 
+				FROM usuarios
+				WHERE nombre_usuario = '".$usuario."' AND pass = '".$pass."' AND activo = '1'";
+		$this->conn->abrirConexion();
+		$resultado = $this->conn->selectLogin($sql);
+		$this->conn->cerrarConexion();
+		if( $resultado == 1 ) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public function agregar($usuario){
@@ -63,8 +74,8 @@ class UsuarioDAO{
 				 	nombres = '$nombres'
 				  , apellidos = '$apellidos'
 				  , fecha_nacimiento = '$fechaNacimiento'
-				  , nombre_usuario = '$nombreUsuario',
-				  , pass = '$pass' 
+				  , nombre_usuario = '$nombreUsuario'
+				  , pass = '$pass'
 				  WHERE 
 				  usuario_id = '$usuarioId'";
 		$this->conn->abrirConexion();
@@ -75,13 +86,9 @@ class UsuarioDAO{
 	public function eliminar($usuarioId){
 		$sql = "DELETE FROM usuarios WHERE usuario_id ='".$usuarioId."'";
 		$this->conn->abrirConexion();
-		if( $this->conn->querys($sql) ){
-			return true;
-		}
-		else {
-			return false;
-		}
-		$this->conn->cerrarConexion();
+		if( $this->conn->querys($sql) )	{ $this->conn->cerrarConexion();	return true;	}
+		else 							{ $this->conn->cerrarConexion();	return false;	}
+		
 	}
 	public function listar()
 		{

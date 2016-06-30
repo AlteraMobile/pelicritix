@@ -11,7 +11,7 @@
 		$directorControl 	= new DirectorControl();
 		$resultado			= $directorControl->buscarDirector( $_GET['id'] );
 		if( !empty($resultado) ) {
-			$id			= $resultado->getDirectorId();
+			$directorId	= $resultado->getDirectorId();
 			$nombres 	= $resultado->getNombre();
 			$apellidos 	= $resultado->getApellido();
 		}
@@ -19,11 +19,11 @@
 
 	// Modificar Director
 	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'editar' ) {
-		if( isset($_REQUEST['nombres']) && isset($_REQUEST['apellidos']) ) {
+		if( isset($_REQUEST['nombre']) && isset($_REQUEST['apellido']) && isset($_REQUEST['directorId']) ) {
 			$director 			= new Director();
-			$director->setDirectorId($_POST['id']);
-			$director->setNombre($_POST['nombres']);
-			$director->setApellido($_POST['apellidos']);
+			$director->setDirectorId($_POST['directorId']);
+			$director->setNombre($_POST['nombre']);
+			$director->setApellido($_POST['apellido']);
 
 			$directorControl 	= new DirectorControl();
 			$directorControl->setDirector($director);
@@ -66,18 +66,18 @@
 			<div id="form_modificar" title="Modificar Director">
  
   				<form role="form" class="form-horizontal" name="director" method="post" onsubmit="return validarFormDirectorMod()" >
-					<input type="hidden" name="id" value="<?php echo $id; ?>">
+					<input type="hidden" name="directorId" value="<?php echo $directorId; ?>">
 					<input type="hidden" name="operacion" value="editar">
 					<div class="form-group">
 						<label for="nombres" class="col-lg-2 col-lg-offset-1 control-label">*Nombres:</label>
 						<div class="col-lg-7">
-							<input type="text" class="form-control" name="nombres" placeholfer="Nombres" value="<?php echo $nombres; ?>">
+							<input type="text" class="form-control" name="nombre" placeholfer="Nombres" value="<?php echo $nombres; ?>">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="apellidos" class="col-lg-2 col-lg-offset-1 control-label">*Apellidos:</label>
 						<div class="col-lg-7">
-							<input type="text" class="form-control" name="apellidos" placeholfer="Apellidos" value="<?php echo $apellidos; ?>">
+							<input type="text" class="form-control" name="apellido" placeholfer="Apellidos" value="<?php echo $apellidos; ?>">
 						</div>
 					</div>
 					 <div class="form-group">

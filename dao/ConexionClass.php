@@ -35,18 +35,28 @@ class Conexion{
 	}
 	public function querys($query){
 		$comprobador = false;
-		if( $this->conn->query($query) ){			
+		if( $this->conn->query($query) ){		
 			if( $this->conn->affected_rows > 0 ){
 				$comprobador = true;
 			}
 		}
 		return $comprobador;
 	}
-	public function select($query)
-		{			
-			$resultado = $this->conn->query($query);
-			return $resultado;
+	public function select($query){			
+		$resultado = $this->conn->query($query);
+		return $resultado;
+	}
+	public function selectLogin($query) {
+		$resultado = $this->conn->query($query);
+		$fila = mysqli_fetch_array($resultado);
+		$cantidad = mysqli_num_rows($resultado);
+		if($cantidad == 1) {
+			return true;
 		}
+		else {
+			return false;
+		}
+	}
 	
 }// end class
 

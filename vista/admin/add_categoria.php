@@ -17,18 +17,9 @@
 		$peliculaControl 	= new PeliculaControl();
 	 	$pelicula 			= $peliculaControl->buscarPelicula($peliculaId);
 	 	$titulo 			= $pelicula->getTitulo();
-
 	 	$peliculaCategoriaControl = new PeliculaCategoriaControl();
 	 	$categoriasActuales = $peliculaCategoriaControl->buscarPeliculaCategoria($peliculaId);
-
-	 	/*for ( $i=0;$i<count($categoriasActuales);$i++) {
-	 		$categoria = $categoriasActuales[$i]->getCategoriaId();
-	 	}*/
 	}
-#	else {
-#		window.location.href = "mod_pelicula.php";
-#	}
-
 	// Agregar catgorias
 	if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'agregar' ) {
 		if( isset($_REQUEST['categoria']) ) {
@@ -72,52 +63,6 @@
 
 		}
 	}
-
-
-	/*if( isset($_REQUEST['operacion']) && $_REQUEST['operacion'] == 'agregar' ) {
-
-		if( isset($_REQUEST['titulo']) && isset($_REQUEST['categoria']) 
-			&& isset($_REQUEST['critica'])	&& $_REQUEST['nota'] ) {
-
-			$pelicula = new Pelicula();
-
-			$pelicula->setTitulo($_POST['titulo']);
-			$pelicula->setSubtitulo($_POST['subtitulo']);
-			$pelicula->setFechaEstreno($_POST['fechaEstreno']);
-			$pelicula->setAnoProduccion($_POST['anoProduccion']);
-			$pelicula->setDuracion($_POST['duracion']);
-			$pelicula->setNota($_POST['nota']);
-			$pelicula->setColor($_POST['color']);
-			$pelicula->setLoMejor($_POST['loMejor']);
-			$pelicula->setLoPeor($_POST['loPeor']);
-			$pelicula->setImgPortada($_POST['ImgPortada']);
-			$pelicula->setUrlTrailer($_POST['urlTrailer']);
-			$pelicula->setGeneroId($_POST['generoId']);
-			$pelicula->setCriticaId($_POST['criticaId']);
-			$pelicula->setDirectorId($_POST['directorId']);
-
-			$peliculaControl = new PeliculaControl();
-			$peliculaControl->setPelicula($pelicula);
-			$return = $peliculaControl->agregarPeliculo();
-
-			if( $return ) {
-				?>
- 					<script type="text/javascript" >
- 					alert("La pelicula fue agregado exitosamente!");
- 					window.location.href = "add_pelicula.php";
- 					</script>
- 				<?php
- 				}
- 				else {
- 				?>
- 					<script type="text/javascript" >
- 						alert("Ocurrió un error. La pelicula no fue guardado!.");
- 						window.location.href = "add_pelicula.php";
- 					</script>
- 				<?php	
-			}			
-		}
-	}*/
 	
 	require_once('header.php');
 	
@@ -131,8 +76,6 @@
 
 		</div>
 	</header>
-
-
 	<section class="container">
 		<div class="row">
 

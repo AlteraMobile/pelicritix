@@ -40,11 +40,11 @@ class DirectorDAO{
 			return $directores;
 	}
 	public function modificar($director) {
-		$id 		= $director->getDirectorId();
+		$directorId	= $director->getDirectorId();
 		$nombre 	= $director->getNombre();
 		$apellido 	= $director->getApellido();
 
-		$sql = "UPDATE directores SET nombre = '$nombre', apellido='$apellido' WHERE director_id = '$id'";
+		$sql = "UPDATE directores SET nombre = '$nombre', apellido='$apellido' WHERE director_id = '$directorId'";
 		$this->conn->abrirConexion();
 		if( $this->conn->querys($sql) ) {	return true;	}
 		else 							{	return false;	}

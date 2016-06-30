@@ -3,8 +3,9 @@
 class SessionControl{
 
 	// Atributos
-	private $esActivo = false;
-
+	private $usuario;
+	private $esActivo;
+	
 	// Constructores
 	function __construct(){
 		if(session_status() != PHP_SESSION_ACTIVE){

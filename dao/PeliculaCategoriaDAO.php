@@ -29,7 +29,7 @@ class PeliculaCategoriaDAO{
 		$this->conn->cerrarConexion();
 	}
 	public function buscar($peliculaId){
-		$sql = "SELECT pelicula_id, categoria_id  FROM peliculacategorias WHERE pelicula_id = '".$peliculaId."'";
+		$sql = "SELECT pelicula_id, categoria_id FROM peliculacategorias WHERE pelicula_id = '".$peliculaId."'";
 		$this->conn->abrirConexion();
 		$resultado = $this->conn->select($sql);
 		$categorias = array();
@@ -39,10 +39,10 @@ class PeliculaCategoriaDAO{
 			$peliculaCategoria->setCategoriaId($fila['categoria_id']);
 			$categorias[] = $peliculaCategoria;
 		}
-		
 		return $categorias;
 		$this->conn->cerrarConexion();
 	}
+
 
 }// end Class
 ?>

@@ -148,6 +148,32 @@ class PeliculaDAO{
 			$this->conn->cerrarConexion();
 			return $peliculas;
 		}
+	public function mostrarPeliculas(){
+			$sql = "SELECT * FROM peliculas";
+			$this->conn->abrirConexion();
+			$resultado = $this->conn->select($sql);
+			$peliculas = array();
+			while( $fila = $resultado->fetch_array() ) {
+				$pelicula = new Pelicula();
+				$pelicula->setPeliculaId(		$fila['pelicula_id']);
+				$pelicula->setTitulo(			$fila['titulo']);
+				$pelicula->setSubtitulo(		$fila['subtitulo']);
+				$pelicula->setFechaEstreno(		$fila['fecha_estreno']);
+				$pelicula->setAnoProduccion(	$fila['ano_produccion']);
+				$pelicula->setDuracion(			$fila['duracion']);
+				$pelicula->setNota(				$fila['nota']);
+				$pelicula->setColor(			$fila['color']);
+				$pelicula->setLoMejor(			$fila['lo_mejor']);
+				$pelicula->setLoPeor(			$fila['lo_peor']);
+				$pelicula->setImgPortada(		$fila['img_portada']);
+				$pelicula->setUrlTrailer(		$fila['url_trailer']);
+				$pelicula->setGeneroId(			$fila['genero_id']);
+				$pelicula->setDirectorId(		$fila['director_id']);
+				$peliculas[] = $pelicula;
+			}
+			$this->conn->cerrarConexion();
+			return $peliculas;
+		}
 
 }// end Class
 ?>

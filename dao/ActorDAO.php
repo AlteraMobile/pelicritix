@@ -43,10 +43,10 @@ class ActorDAO{
 		$this->conn->cerrarConexion();
 	}
 	public function modificar($actor) {
-		$id 		= $actor->getActorId();
+		$actorId	= $actor->getActorId();
 		$nombre 	= $actor->getNombre();
 		$apellido 	= $actor->getApellido();
-		$sql = "UPDATE actores SET nombre = '$nombre', apellido = '$apellido' WHERE actor_id = '$id' ";
+		$sql = "UPDATE actores SET nombre = '$nombre', apellido = '$apellido' WHERE actor_id = '$actorId' ";
 		$this->conn->abrirConexion();
 		if($this->conn->querys($sql)) 	{	return true; 	}
 		else 							{	return false;	}

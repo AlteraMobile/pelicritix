@@ -45,14 +45,24 @@ class CategoriaControl{
 		$resultado = $this->daoCategoria->buscar($categoriaId);
 		return $resultado;
 	}
+	public function buscarDescripcion($categoriaId) {
+		$resultado = $this->daoCategoria->buscarDescripcion($categoriaId);
+		return $resultado;
+	}
 	public function listarCategorias() {
 		$categorias = $this->daoCategoria->listar();
 		
 		foreach ($categorias as $categoria){
-			echo '<OPTION VALUE="'.$categoria->getCategoriaId().'" >'.$categoria->getDescripcion().'</option>';
+			#$selected = "";
+			#if(idcategoria existe rel)
+			#$selected = "selected='selected'";
+
+			echo '<option value="'.$categoria->getCategoriaId().'" >'.$categoria->getDescripcion().'</option>';
 			
 		}
 	}
+
+	
 
 }
 ?>

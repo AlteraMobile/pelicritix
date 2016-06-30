@@ -46,8 +46,8 @@ class DirectorControl{
 			return $resultado;
 		}
 	}
-	public function buscarDirector($id) {
-		$directores 	= $this->daoDirector->buscar($id);
+	public function buscarDirector($direcotrId) {
+		$directores	= $this->daoDirector->buscar($direcotrId);
 		foreach ( $directores as $director ) {
 			$director->getDirectorId();
 			$director->getNombre();
@@ -58,12 +58,12 @@ class DirectorControl{
 	public function modificarDirector() {
 		$director = $this->director;
 		
-		$directorId 		= $director->getDirectorId();
-		$nombres 	= $director->getNombre();
+		$directorId = $director->getDirectorId();
+		$nombre 	= $director->getNombre();
 		$apellido	= $director->getApellido();
 
-		if( empty($nombres) || is_null($nombres) || strlen($nombres) < 3 ) 				{ return false; }
-		elseif( empty($apellidos) || is_null($apellidos) || strlen($apellidos) < 3 ) 	{ return false; }
+		if( empty($nombre) || is_null($nombre) || strlen($nombre) < 3 ) 			{ return false; }
+		elseif( empty($apellido) || is_null($apellido) || strlen($apellido) < 3 ) 	{ return false; }
 		else {
 			$resultado = $this->daoDirector->modificar($director);
 			$this->conexion->cerrarConexion();

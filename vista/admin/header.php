@@ -1,3 +1,10 @@
+<?php
+	if( !empty($_SESSION["login_user"]) ){
+	}
+	else {
+		header('../../controlador/disconnect.php');
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

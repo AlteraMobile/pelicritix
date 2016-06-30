@@ -6,7 +6,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">{ PeliCritix } <small>Administrador</small></a>
+			<a class="navbar-brand" href="../../controlador/disconnect.php">{ PeliCritix } <small>Administrador</small></a>
 	   	</div>
 	   	<div class="collapse navbar-collapse" id="menu">
 	    	<ul class="nav navbar-nav">
@@ -35,13 +35,6 @@
 		      			<span class="glyphicon glyphicon-bullhorn"></span> Directores
 		      		</a>
 		      	</li>
-		      	<!--
-		      	<li>
-					<a href="sliders.php">
-		      			<span class="glyphicon glyphicon-picture"></span> Sliders
-		      		</a>
-		      	</li>
-		      	-->
 	      		<li>					      	
 					<a href="registro_usuario.php">
 	    	  			<span class="glyphicon glyphicon-user"></span> Registro Usuario
@@ -50,7 +43,7 @@
 		   	</ul>
 		   	<ul class="nav navbar-nav navbar-right">
 		    	<li>
-		    		<a href="../../index.php">
+		    		<a href="<?php echo $control_path.'disconnect.php' ?>">
 		    			<span class="glyphicon glyphicon-log-out"></span> Cerrar
 		    		</a>
 		    	</li>

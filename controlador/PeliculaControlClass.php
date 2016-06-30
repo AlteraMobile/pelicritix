@@ -1,5 +1,19 @@
 <?php
 require_once('/../entidades/PeliculaClass.php');
+require_once('/../entidades/ActorClass.php');
+require_once('/../entidades/CategoriaClass.php');
+require_once('/../entidades/PeliculaCategoriaClass.php');
+require_once('/../entidades/PeliculaActorClass.php');
+require_once('/../entidades/DirectorClass.php');
+require_once('/../entidades/CriticaClass.php');
+
+require_once('/../controlador/ActorControlClass.php');
+require_once('/../controlador/PeliculaCategoriaControlClass.php');
+require_once('/../controlador/PeliculaActorControlClass.php');
+require_once('/../controlador/CategoriaControlClass.php');
+require_once('/../controlador/DirectorControlClass.php');
+require_once('/../controlador/CriticaControlClass.php');
+
 require_once('/../dao/PeliculaDAO.php');
 require_once('/../dao/ConexionClass.php');
 
@@ -121,7 +135,7 @@ class PeliculaControl{
 				id="'.$pelicula->getPeliculaId().'"
 				class="btn btn-default btn-xs eliminar_usuario"
 				>
-				<span class="glyphicon glyphicon-remove" > </span> Crítica
+				<span class="glyphicon glyphicon-pencil" > </span> Crítica
 			</button>
 			<button
 				name="operacion"
@@ -130,9 +144,171 @@ class PeliculaControl{
 				id="'.$pelicula->getPeliculaId().'"
 				class="btn btn-default btn-xs eliminar_usuario"
 				>
-				<span class="glyphicon glyphicon-remove" > </span>
+				<span class="glyphicon glyphicon-remove" > </span> Eliminar
 			</button>
 			</td></tr>';
+		}
+	}
+
+	public function mostrarPeliculas() {
+		$peliculas = $this->daoPelicula->mostrarPeliculas();
+		foreach ($peliculas as $pelicula){
+			// Empieza el grid-item
+			// PeliculaId
+			echo '<div class="grid-item" id="'.$pelicula->getPeliculaId().'">';
+
+			// Imagen de portada
+			if(!empty($pelicula->getImgPortada()) && !is_null($pelicula->getImgPortada()) ){
+				echo '<div class="cont_caratula">';
+				echo '<img src="contenido/img/cover/'.$pelicula->getImgPortada();
+				echo '" >';
+				echo '</div>';
+			}
+
+			// Nota
+			echo '<div class="ranking">';
+			echo $pelicula->getNota();
+			echo '</div>';
+
+			// Título
+			echo '<hgroup><h1>';
+			echo $pelicula->getTitulo();
+			echo '</h1>';
+			
+
+			// Subtitulo
+			if(!empty($pelicula->getSubtitulo()) && !is_null($pelicula->getSubtitulo()) ){
+				echo '<h3>';
+				echo $pelicula->getSubtitulo();
+				echo '</h3>';
+			}
+			echo '</hgroup>';
+
+			// Trailer
+			if(!empty($pelicula->getUrlTrailer()) && !is_null($pelicula->getUrlTrailer()) ){
+				echo '<span id="';
+				echo $pelicula->getPeliculaId();
+				echo '"class="glyphicon glyphicon-play play btn_trailer" aria-hidden="true"></span>';
+				echo '<div class="trailer';
+				echo $pelicula->getPeliculaId();
+				echo ' trailer">';
+				echo '<iframe  width="960" height="720" src="';
+				echo $pelicula->getUrlTrailer();
+				echo '" frameborder="0" allowfullscreen></iframe></div>';
+			}
+
+			echo '<div class="detalle"><table width="251">';
+
+			// Fecha de Estreno
+			if(!empty($pelicula->getFechaEstreno()) && !is_null($pelicula->getFechaEstreno()) ){
+				echo '<tr><td class="bold" width="100">';
+				echo 'Fecha de Produccion: </td><td>';
+				echo $pelicula->getFechaEstreno();
+				echo '</td></tr>';
+			}
+
+			// Año de Produccion
+			if(!empty($pelicula->getAnoProduccion()) && !is_null($pelicula->getAnoProduccion()) ){
+				echo '<tr><td class="bold">Año de Producción:</td><td>';
+				echo $pelicula->getAnoProduccion();
+				echo '</td></tr>';
+			}
+
+			// Duración
+			if(!empty($pelicula->getDuracion()) && !is_null($pelicula->getDuracion()) ){
+				echo '<tr><td class="bold">Duración:</td><td>';
+				echo $pelicula->getDuracion();
+				echo '</td></tr>';
+			}
+
+			// Color
+			if(!empty($pelicula->getColor()) && !is_null($pelicula->getColor()) ){
+				echo '<tr><td class="bold">Color:</td><td>';
+				echo $pelicula->getColor();
+				echo '</td></tr>';
+			}
+
+
+			$peliculaCategoriaControl = new PeliculaCategoriaControl();
+	 		$categoriasActuales = $peliculaCategoriaControl->buscarPeliculaCategoria($pelicula->getPeliculaId());
+
+	 		
+			// Categorías
+			if(!empty($categoriasActuales) && !is_null($categoriasActuales) ) {
+				echo '<tr><td class="bold">Categoría:</td><td>';
+
+				foreach ($categoriasActuales as $categoriaActual) {
+	 			$categoriaControl = new CategoriaControl();
+	 			$categoria = $categoriaControl->buscarDescripcion($categoriaActual->getCategoriaId());
+	 			$categoria2 = $categoria->getDescripcion();
+	 			echo $categoria2.", ";
+	 		}
+
+				echo '</td></tr>';
+			}
+			// Genero
+			if(!empty($pelicula->getGeneroId()) && !is_null($pelicula->getGeneroId()) ){
+				echo '<tr><td class="bold">Genero:</td><td>';
+				echo 'Película';
+				echo '</td></tr>';
+			}
+
+			$peliculaActorControl = new PeliculaActorControl();
+	 		$actoresActuales = $peliculaActorControl->buscarPeliculaActor($pelicula->getPeliculaId());
+
+			// Reparto
+			if(!empty($actoresActuales) && !is_null($actoresActuales) ) {
+				echo '<tr><td class="bold">Reparto:</td><td>';
+
+				foreach ($actoresActuales as $actorActual) {
+	 			$actorControl = new ActorControl();
+	 			$actor = $actorControl->buscarActor($actorActual->getActorId());
+	 			$actor2 = $actor->getNombre();
+	 			$actor3 = $actor->getApellido();
+	 			echo $actor2." ".$actor3.", ";
+	 		}
+	 	}
+
+	 		// Director
+			if(!empty($pelicula->getDirectorId()) && !is_null($pelicula->getDirectorId()) ){
+				echo '<tr><td class="bold">Director:</td><td>';
+				$directorControl = new DirectorControl();
+				$director = $directorControl->buscarDirector($pelicula->getDirectorId());
+				$nombre = $director->getNombre();
+				$apellido = $director->getApellido();
+				echo $nombre." ".$apellido.", ";
+				echo '</td></tr>';
+			}
+			if(!empty($pelicula->getLoMejor()) && !is_null($pelicula->getLoMejor()) ){
+				echo '<tr><td class="bold">Lo mejor:</td><td>';
+				echo $pelicula->getLoMejor();
+				echo '</td></tr>';
+			}
+
+			// Lo peor
+			if(!empty($pelicula->getLoPeor()) && !is_null($pelicula->getLoPeor()) ){
+				echo '<tr><td class="bold">Lo peor:</td><td>';
+				echo $pelicula->getLoPeor();
+				echo '</td></tr>';
+			}
+
+			// cerramos tabla
+			echo '</table></div>';
+
+				// Critica
+			$criticaControl = new CriticaControl();
+			$critica = $criticaControl->buscarCritica($pelicula->getPeliculaId());
+			$critica2 = $critica->getComentario();
+			echo '<div class="min_critica">';
+			echo substr($critica2, 0, 57);
+			echo '</div>';
+			echo '<div id="';
+			echo $pelicula->getPeliculaId();
+			echo '" class="max_critica"><p>';
+			echo substr($critica2, 58);
+			echo '</p><input id="';
+			echo $pelicula->getPeliculaId();
+			echo '" class="btn btn-default btn-info leer_mas" value="Leer +"></div></div>';
 		}
 	}
 }
